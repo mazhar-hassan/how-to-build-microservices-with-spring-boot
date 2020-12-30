@@ -1,4 +1,4 @@
-package com.ptv.livebox.integration;
+package com.ptv.livebox.integration.repository;
 
 import com.ptv.livebox.dao.MovieRepository;
 import com.ptv.livebox.dao.entity.MovieEntity;
