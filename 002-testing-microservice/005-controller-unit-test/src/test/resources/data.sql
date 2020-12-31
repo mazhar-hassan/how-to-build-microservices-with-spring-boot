@@ -1,3 +1,4 @@
+TRUNCATE TABLE tv_movies;
 INSERT INTO tv_movies
 (id, name, description)
 VALUES

@@ -6,15 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import javax.persistence.EntityManager;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 public class MovieRepositoryIntegrationTest {
-
-    @Autowired
-    EntityManager entityManager;
 
     @Autowired
     MovieRepository movieRepository;
@@ -26,7 +21,7 @@ public class MovieRepositoryIntegrationTest {
         MovieEntity movie = new MovieEntity();
         movie.setName("Test Movie Integration");
         movie.setDescription("Some testing description");
-        entityManager.persist(movie);
+        movieRepository.save(movie);
 
         //when - Action
         boolean result = movieRepository.existsById(movie.getId());

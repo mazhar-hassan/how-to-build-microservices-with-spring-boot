@@ -1,4 +1,4 @@
-package com.ptv.livebox.integration.controller;
+package com.ptv.livebox.unit.controller;
 
 import com.ptv.livebox.contoller.MovieController;
 import com.ptv.livebox.dto.Movie;
@@ -9,11 +9,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static com.ptv.livebox.MovieDataUtils.createMovieDTO;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class TestController {
+public class MovieControllerUnitTest {
 
     @Mock
     MovieService service;
@@ -30,12 +31,5 @@ public class TestController {
         Movie result = controller.findById(1);
 
         assertThat(result).isNotNull();
-    }
-
-    private Movie createMovieDTO() {
-        Movie movie = new Movie();
-        movie.setId(1);
-        movie.setName("Mock Movie");
-        return movie;
     }
 }

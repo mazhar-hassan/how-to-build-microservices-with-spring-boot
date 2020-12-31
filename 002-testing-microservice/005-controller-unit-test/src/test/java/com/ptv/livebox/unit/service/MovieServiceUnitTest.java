@@ -13,6 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static com.ptv.livebox.MovieDataUtils.createMovieDTO;
+import static com.ptv.livebox.MovieDataUtils.createMovieEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -48,18 +50,5 @@ public class MovieServiceUnitTest {
         verify(movieRepository).findById(movieId);
         verify(movieMapper, times(1)).map(entity);
     }
-    
-    private MovieEntity createMovieEntity() {
-        MovieEntity movie = new MovieEntity();
-        movie.setId(1);
-        movie.setName("Mock Movie");
-        return movie;
-    }
 
-    private Movie createMovieDTO() {
-        Movie movie = new Movie();
-        movie.setId(1);
-        movie.setName("Mock Movie");
-        return movie;
-    }
 }
