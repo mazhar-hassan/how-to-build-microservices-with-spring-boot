@@ -1,5 +1,6 @@
 package com.ptv.livebox.service.impl;
 
+import com.ptv.livebox.common.exceptions.RecordNotFoundException;
 import com.ptv.livebox.dao.MovieRepository;
 import com.ptv.livebox.dto.Movie;
 import com.ptv.livebox.mapper.MovieMapper;
@@ -28,6 +29,6 @@ public class MovieServiceImpl implements MovieService {
     public Movie findById(Integer id) {
         return movieRepository.findById(id)
                 .map(movieMapper::map)
-                .orElseThrow();
+                .orElseThrow(() -> new RecordNotFoundException(1, "Movie not found"));
     }
 }
