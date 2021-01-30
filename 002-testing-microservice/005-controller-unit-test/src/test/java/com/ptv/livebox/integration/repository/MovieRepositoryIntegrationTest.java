@@ -10,30 +10,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 public class MovieRepositoryIntegrationTest {
-
     @Autowired
     MovieRepository movieRepository;
 
     @Test
-    void test() {
-
-        //given - Arrange
-        MovieEntity movie = new MovieEntity();
-        movie.setName("Test Movie Integration");
-        movie.setDescription("Some testing description");
-        movieRepository.save(movie);
-
-        //when - Action
-        boolean result = movieRepository.existsById(movie.getId());
-
-        //then - Assert
-        assertThat(result).isEqualTo(true);
-    }
-
-    @Test
     void testFindById() {
-
-        //given - Arrange
+        //give - Arrange
         Integer movieId = 3;
 
         //when - Action
@@ -44,5 +26,4 @@ public class MovieRepositoryIntegrationTest {
         assertThat(movie.getName()).isEqualTo("The Last Samurai - Test Movie");
         assertThat(movie.getDescription()).isEqualTo("Code and Honour");
     }
-
 }

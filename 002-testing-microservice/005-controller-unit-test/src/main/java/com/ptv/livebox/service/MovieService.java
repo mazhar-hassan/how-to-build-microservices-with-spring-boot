@@ -8,4 +8,10 @@ public interface MovieService {
     List<Movie> list();
 
     Movie findById(Integer id);
+
+    Movie create(Movie movie);
+
+    Movie update(Integer id, Movie movie);
+
+    Boolean delete(Integer id);
 }

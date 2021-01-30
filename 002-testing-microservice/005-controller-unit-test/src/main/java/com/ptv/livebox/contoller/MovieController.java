@@ -2,10 +2,7 @@ package com.ptv.livebox.contoller;
 
 import com.ptv.livebox.dto.Movie;
 import com.ptv.livebox.service.MovieService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,6 +11,7 @@ import java.util.List;
 public class MovieController {
 
     private final MovieService movieService;
+
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
     }
@@ -25,6 +23,21 @@ public class MovieController {
 
     @GetMapping("/{id}")
     public Movie findById(@PathVariable("id") Integer id) {
-            return movieService.findById(id);
+        return movieService.findById(id);
+    }
+
+    @PostMapping
+    public Movie create(@RequestBody Movie movie) {
+        return movieService.create(movie);
+    }
+
+    @PutMapping("/{id}")
+    public Movie create(@PathVariable("id") Integer id, @RequestBody Movie movie) {
+        return movieService.update(id, movie);
+    }
+
+    @DeleteMapping("/{id}")
+    public Boolean delete(@PathVariable("id") Integer id) {
+        return movieService.delete(id);
     }
 }
